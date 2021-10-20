@@ -43,7 +43,6 @@ def apply():
         reader = csv.reader(file)
         for row in reader:
             if(row != []):
-                print(row)
                 if (row[0] == in_json["centerlink_number"]):
                     current_time = datetime.now()
                     print(in_json["centerlink_number"] + ",       " + "application already exists" + ",       " + str(
