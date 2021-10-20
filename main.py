@@ -79,6 +79,7 @@ def status():
 
 
 res = requests.post( "https://rentstart-bond-application.herokuapp.com/") 
+print(res.json())
 
 if __name__ == "__main__":
     app.run()
