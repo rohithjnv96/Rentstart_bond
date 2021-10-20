@@ -33,6 +33,7 @@ def apply():
         current_time = datetime.now()
         print(in_json["centerlink_number"] + ",       " + "income proof not found" + ",       " + str(current_time))
         list_of_docs.append("income_proof")
+
     if(list_of_docs != []):
         current_time = datetime.now()
         print(in_json["centerlink_number"] + ",       " + "documents insufficient" + ",       " + str(current_time))
@@ -42,18 +43,22 @@ def apply():
         reader = csv.reader(file)
         for row in reader:
             if(row != []):
+                print(row)
                 if (row[0] == in_json["centerlink_number"]):
                     current_time = datetime.now()
                     print(in_json["centerlink_number"] + ",       " + "application already exists" + ",       " + str(
                         current_time))
+                    file.close()
                     return "application with same centerlink id found in DB: you can check the status of application"
-    file.close()
+
 
     fields = []
-    with open('list_applicants.csv', 'a') as fd:
-        writer = csv.writer(fd)
+    for key in in_json:
+        fields.append(in_json[key])
+    with open('list_applicants.csv', 'a') as file2:
+        writer = csv.writer(file2)
         writer.writerow(fields)
-    fd.close()
+    file2.close()
     current_time = datetime.now()
     print(in_json["centerlink_number"] + ",       " + "applications db updated" + ",       " + str(current_time))
 
