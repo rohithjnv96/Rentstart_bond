@@ -39,7 +39,6 @@ def apply():
     fields = []
     for key in in_json:
         fields.append(in_json[key])
-    print(fields)
     with open('list_applicants.csv', 'a') as fd:
         writer = csv.writer(fd)
         writer.writerow(fields)
