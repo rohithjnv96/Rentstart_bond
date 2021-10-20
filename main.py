@@ -1,6 +1,5 @@
 import flask
 import csv
-import requests
 from flask import Flask
 
 app = Flask(__name__)
@@ -76,10 +75,6 @@ def status():
     else:
         print("application with centerlink number: " + str(in_json["centerlink_number"]) + " not found")
         return "application with centerlink number: " + in_json["centerlink_number"] + " not found"
-
-
-res = requests.post( "https://rentstart-bond-application.herokuapp.com/") 
-print(res.json())
 
 if __name__ == "__main__":
     app.run()
