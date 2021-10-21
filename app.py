@@ -12,6 +12,7 @@ def apply():
     if (in_json["centerlink_number"] == ""):
         current_time = datetime.now()
         print(", " + in_json["centerlink_number"] + ",       " + "centerlink number not found" + ",       " + str(current_time))
+        return "no centerlink number found -> cant initiate application process"
 
     current_time = datetime.now()
     print(", " + in_json["centerlink_number"] + ",       " + "application process started" + ",       " + str(current_time))
